@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ang-maps';
+  
+  lat: number = 43;
+  lng: number = 25;
+
 }
