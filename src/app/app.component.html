@@ -1,4 +1,11 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
+The content below is only a placeholder and can be replaced.
+<!-- <agm-map [latitude]="latitude" [longitude]="longitude" >
+  <agm-marker [latitude]=locations.latitude [longitude]=location.longitude *ngFor="let location of locations"></agm-marker>
+</agm-map> -->
+
+
+<agm-map style="height: 300px" >
+    <agm-marker-cluster [imagePath]="'https://googlemaps.github.io/js-marker-clusterer/images/m'">
+      <agm-marker *ngFor="let location of locations" [latitude]="location.latitude" [longitude]="location.longitude"></agm-marker>
+    </agm-marker-cluster>
+  </agm-map>
