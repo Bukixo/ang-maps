@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { LocationsDataService } from './locations-data.service'
-import { from } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -8,45 +8,23 @@ import { from } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 
-
-// export class AppComponent {
   
-
-//    locations : any
-
-
+export class AppComponent {
+  constructor(private http: HttpClient) { }
+   locations;
+   ngOnInit() {
+      this.http.get("https://s3-eu-west-1.amazonaws.com/omnifi/techtests/locations.json")
+      .subscribe((location) => this.displaydata(location)); 
+        
+   }
+   displaydata(location) {this.locations = location;}
+}
+  
 //   constructor(public locationsData : LocationsDataService) {
 //     this.locationsData = locationsData
 //   }
-// locations = [
-//   {
-//   "name": "Åland Islands",
-//   "capital": "Mariehamn",
-//   "latitude": 60.116667,
-//   "longitude": 19.9
-//   },
-//   {
-//   "name": "Albania",
-//   "capital": "Tirana",
-//   "latitude": 41,
-//   "longitude": 20
-//   },
-//   {
-//   "name": "Andorra",
-//   "capital": "Andorra la Vella",
-//   "latitude": 42.5,
-//   "longitude": 1.5
-//   }
-
-// ]
-  
-export class AppComponent {
-  
-  constructor(public locationsData : LocationsDataService) {
-    this.locationsData = locationsData
-  }
-locations = this.locationsData.getLocations()
+// locations = this.locationsData.getLocations()
   
 
 
-}
+// }
