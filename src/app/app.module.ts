@@ -5,11 +5,13 @@ import { AgmCoreModule } from '@agm/core';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { LocationsDataService } from './locations-data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MapsComponent } from './maps/maps.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MapsComponent
   ],
   imports: [
     BrowserModule,

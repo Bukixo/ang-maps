@@ -1,0 +1,9 @@
+<agm-map   style="height: 700px" [latitude]="43" [longitude]="25" >
+    <agm-marker-cluster  [imagePath]="'https://googlemaps.github.io/js-marker-clusterer/images/m'">
+      <agm-marker  *ngFor="let location of locations$"  [latitude]="location.latitude" [longitude]="location.longitude">
+        
+          <agm-info-window>{{location.name}}</agm-info-window>
+    
+      </agm-marker>
+    </agm-marker-cluster>
+  </agm-map>

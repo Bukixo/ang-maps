@@ -58,7 +58,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ang-maps:build"
+            "browserTarget": "ang-maps:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {

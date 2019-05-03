@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target":"https://s3-eu-west-1.amazonaws.com/omnifi/techtests/locations.json",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

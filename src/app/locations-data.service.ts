@@ -1,35 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable, TestabilityRegistry } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Location } from './location.model'
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocationsDataService {
+  apiUrl = 'https://s3-eu-west-1.amazonaws.com/omnifi/techtests/locations.json'
 
-  private locations: any;
+  constructor(private http: HttpClient) { }
 
 
   getLocations() {
-    this.locations = [
-      {
-        "name": "Åland Islands",
-        "capital": "Mariehamn",
-        "latitude": 60.116667,
-        "longitude": 19.9
-      },
-      {
-        "name": "Albania",
-        "capital": "Tirana",
-        "latitude": 41,
-        "longitude": 20
-      },
-      {
-        "name": "Andorra",
-        "capital": "Andorra la Vella",
-        "latitude": 42.5,
-        "longitude": 1.5
-      },
-    ]
-    return this.locations
+    return this.http.get<Location[]>(this.apiUrl);
   }
-
 }
